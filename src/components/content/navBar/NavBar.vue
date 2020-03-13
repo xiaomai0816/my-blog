@@ -29,7 +29,10 @@
 
         //2.路由跳转
         console.log(this.$router);
-        this.$router.replace(path)
+        if(this.$router.history.current.path !== path){
+          this.$router.replace(path)
+        }
+
       }
     }
   }
