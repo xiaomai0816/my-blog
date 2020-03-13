@@ -1,17 +1,7 @@
 <template>
   <div class="main-body">
     <top>
-      <nav-bar class="nav-bar"/>
-      <!--<div class="nav-bar">
-        <nav-bar></nav-bar>
-        &lt;!&ndash;<router-link v-for="(item,index) in titles"
-                     :key="index"
-                     @click="itemClick"
-                     :to="item.path">{{item.title}}</router-link>&ndash;&gt;
-        &lt;!&ndash;<div v-for="(item,index) in titles"
-             :key="index"
-             class="nav-bar-item" @click="itemClick">{{item}}</div>&ndash;&gt;
-      </div>-->
+      <nav-bar class="nav-bar" :titles="titles"/>
     </top>
    <slot></slot>
     <bottom/>
@@ -35,17 +25,11 @@
     data(){
       return {
         titles:[
-          // {title: '主页',path:'index'},
-          // {title: '友链',path:'link'},
-          // {title: '关于',path:'about'},
-          // {title: '后台登录',path:'adminLogin'}
+          {title: '主页',path:'/index'},
+          {title: '友链',path:'/link'},
+          {title: '关于',path:'/about'},
+          {title: '后台登录',path:'/adminLogin'}
         ]
-      }
-    },
-    methods:{
-      itemClick(){
-        console.log('itemClick');
-        console.log(this.$route)
       }
     }
   }

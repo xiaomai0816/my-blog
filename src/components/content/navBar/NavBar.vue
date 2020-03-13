@@ -4,7 +4,7 @@
          :key="index"
          class="nav-bar-item"
          :class="{active: index === currentIndex}"
-         @click="itemClick(index)">
+         @click="itemClick(index,item.path)">
       {{item.title}}
     </div>
   </div>
@@ -14,7 +14,7 @@
   export default {
     name: "NavBar",
     props:{
-      path:String
+      titles:Array
     },
     data(){
       return {
@@ -22,13 +22,14 @@
       }
     },
     methods:{
-      itemClick(index){
+      itemClick(index,path){
         //导航栏点击事件
         //1.点击时动态添加active样式
         this.currentIndex = index
 
         //2.路由跳转
         console.log(this.$router);
+        this.$router.replace(path)
       }
     }
   }
