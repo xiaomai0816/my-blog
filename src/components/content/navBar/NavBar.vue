@@ -26,9 +26,13 @@
         //导航栏点击事件
         //1.点击时动态添加active样式
         this.currentIndex = index
-
+        console.log(path);
+        if (path.endsWith('Login')){
+          this.$router.push(path)
+          return
+        }
         //2.路由跳转
-        console.log(this.$router);
+        // console.log(this.$router);
         if(this.$router.history.current.path !== path){
           this.$router.replace(path)
         }
@@ -46,6 +50,7 @@
     color: white;
     font-weight: bold;
     line-height: 50px;
+    text-align: center;
   }
   .nav-bar-item{
     flex: 1;
