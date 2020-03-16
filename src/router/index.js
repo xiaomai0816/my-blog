@@ -11,7 +11,10 @@ const FriendlyLink = () => import('../views/homePage/friendlyLink/FriendlyLink')
 const About = () => import('../views/homePage/about/About')
 
 const AdminLogin = () => import('../views/adminLogin/AdminLogin')
+
 const Management = () => import('../views/management/Management')
+
+
 
 
 
@@ -51,7 +54,45 @@ const routes = [
   {
     path:'/management',
     name:'management',
-    component:Management
+    component:Management,
+    children:[
+      {
+        path:'dashboard',
+        component: () => import('../views/management/childCpn/Dashboard')
+      },
+      {
+        path:'postBlog',
+        component: () => import('../views/management/childCpn/PostBlog')
+      },
+      {
+        path:'blogManagement',
+        component: () => import('../views/management/childCpn/BlogManagement')
+      },
+      {
+        path:'commentManagement',
+        component: () => import('../views/management/childCpn/CommentManagement')
+      },
+      {
+        path:'categoryManagement',
+        component: () => import('../views/management/childCpn/CategoryManagement')
+      },
+      {
+        path:'labelManagement',
+        component: () => import('../views/management/childCpn/LabelManagement')
+      },
+      {
+        path:'link',
+        component: () => import('../views/management/childCpn/Link')
+      },
+      {
+        path:'systemConfiguration',
+        component: () => import('../views/management/childCpn/SystemConfiguration')
+      },
+      {
+        path:'updatePassword',
+        component: () => import('../views/management/childCpn/UpdatePassword')
+      },
+    ]
   }
 ]
 
